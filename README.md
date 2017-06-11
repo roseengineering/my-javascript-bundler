@@ -19,11 +19,8 @@ For example to bundle a web app you can use:
 
      python3 bundle.py vendor/*.js js/*.js js/**/*.js > index.js
 
-The bundler can also be used for bundling modules which can
-then copied to the vendor/ directory and used like vendor modules.
-
-For example to bundle up a module you can use: (The entry point is changed
-to 'index' from the default 'main')
+The bundler can also be used for bundling vendor modules together.
+For example to bundle up a module you can use: 
 
      python3 bundle.py -e index src/*.js src/**/*.js > module.js
 
