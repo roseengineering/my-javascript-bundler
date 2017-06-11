@@ -3,7 +3,7 @@ Gone are the days when you can bundle your javascript code together
 using cat.  Now much more sophisticated bundlers are required.
 However if you want a middle ground you can try my bundler in this repo.
 The bundler supports ES6/ES2015 imports.  It resembles sstephenson/stitch
-more than browsify.  
+more than browserify.  
 
 Your source code should be in js/.  Any imports of source code
 modules should be prefixed with './'.  Your vendor modules
