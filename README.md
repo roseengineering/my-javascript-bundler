@@ -5,8 +5,8 @@ However if you want a middle ground you can try my bundler in this repo.
 The bundler supports ES6/ES2015 imports.  It resembles sstephenson/stitch
 more than browserify.  
 
-Your source code should be in js/.  Any imports of source code
-modules should be prefixed with './'.  Your vendor modules
+Your source code should be in js/.  Imports of source code
+modules in js/ should be prefixed with './'.  Your vendor modules
 should be in src/, vendor/ or node_modules/.  Imports of vendor modules
 are not prefixed.
 
