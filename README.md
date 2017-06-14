@@ -8,7 +8,7 @@ more than browserify.
 Your source code should be in js/.  Any imports of source code
 modules should be prefixed with './'.  Your vendor modules
 should be in src/, vendor/ or node_modules/.  Imports of vendor modules
-should are not prefixed.
+are not prefixed.
 
 Relative module addressing is not supported.  All addressing must
 be absolute.  If the module's name ends in /index, this suffix will be
