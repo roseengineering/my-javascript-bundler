@@ -37,7 +37,6 @@ exports.default = "I am glamorous";
 ::::::::::::::
 js/index.js
 ::::::::::::::
-
 iamglamorous = require('./iamglamorous');
 console.log(iamglamorous.default);
 ```
@@ -67,12 +66,10 @@ module.exports = (function bundler(modules){
 })({
 './iamglamorous':function(require, module, exports){
 exports.default = "I am glamorous";
-
 },
 '.':function(require, module, exports){
 iamglamorous = require('./iamglamorous');
 console.log(iamglamorous.default);
-
 },
 })('.');
 ```
