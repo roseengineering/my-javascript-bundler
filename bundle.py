@@ -44,6 +44,7 @@ for filename in args:
         buf = f.read()
         sys.stdout.write("'%s':function(require, module, exports){\n" % norm(filename))
         sys.stdout.write(buf)
+        sys.stdout.write("\n")    # just in case the last light is a comment
         sys.stdout.write("},\n")
 
 sys.stdout.write("})('%s');\n" % entrypoint)
