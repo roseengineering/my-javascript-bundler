@@ -1,6 +1,6 @@
 
 Gone are the days when you can bundle your javascript code together
-using cat.  Now much more sophisticated bundlers are required.
+using cat.  Now far more sophisticated bundlers are required.
 However if you want a middle ground you can try my bundler in this repo.
 The bundler supports ES6/ES2015 imports.  It resembles sstephenson/stitch
 more than browserify.  
@@ -26,7 +26,7 @@ For example to bundle up a module you can use:
 
 In other words, all bundles can be rebundled.
 
-For example, let's bundle the example in the repo's js directory.
+Now, let's bundle the example in the repo's js directory.
 
 ```
 ::::::::::::::
@@ -75,7 +75,5 @@ console.log(iamglamorous.default);
 },
 })('.');
 ```
-
-
 
 Copyright 2017 roseengineering
