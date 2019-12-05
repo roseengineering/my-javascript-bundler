@@ -15,7 +15,7 @@ be absolute.  Bundlejs.py requires python3 to run.  The bundler will
 call the entry point module when loaded.  The entry point import name
 is set to '/main'.  For example to bundle a web app you can use:
 
-     python3 bundlejs.py vendor/*.js js/*.js js/**/*.js > main.js
+     python3 bundlejs.py vendor/*.js js/*.js js/**/*.js > index.js
 
 The bundler can also be used for bundling a library together.
 For example to bundle up a module you can use: 
