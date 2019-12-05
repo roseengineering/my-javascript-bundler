@@ -1,32 +1,34 @@
 
-Gone are the days when you can bundle your javascript code together
-using cat.  Now far more sophisticated bundlers are required.
-However if you want a middle ground you can try my bundler in this repo.
-The bundler supports ES6/ES2015 imports.  It resembles sstephenson/stitch
-more than browserify.  
+You do not have to bundle your javascript code together
+using cat or with super sophisticated bundlers.  This bundler
+is far more simpler.
 
-Your source code should be in js/ or src/.  Imports of source code
-modules in js/ or src/ should be prefixed with './'.  Your vendor modules
-should be in vendor/ or node_modules/.  Imports of vendor modules
-are not prefixed.
+The bundler also supports ES6/ES2015 imports.  So you can
+babelify the code and then use this bundler to bundle the
+result. 
+
+Imports of source code
+in js/ or src/ will have their js/ or src/ prefix replaced
+with a '/'.
+
+If your vendor libraries are in vendor/ or node\_modules/, imports
+of these files will have their their above prefixes dropped.
 
 Relative module addressing is not supported.  All addressing must
-be absolute.  If the module's name ends in /index, this suffix will be
-stripped.  Also bundle.py requires python3 to run.  By default the
-entry module is '.' which resolves to index.js.  This can be changed using the -e option.
+be absolute.  Bundlejs.py requires python3 to run.  By default the
+entry module is 'main.js' which resolves to /main as the import
+name.  This can be changed using the -e option.
 
 For example to bundle a web app you can use:
 
-     python3 bundle.py vendor/*.js js/*.js js/**/*.js > index.js
+     python3 bundlejs.py vendor/*.js js/*.js js/**/*.js > main.js
 
-The bundler can also be used for bundling vendor modules together.
+The bundler can also be used for bundling a library together.
 For example to bundle up a module you can use: 
 
-     python3 bundle.py src/*.js src/**/*.js > module.js
+     python3 bundlejs.py src/*.js src/**/*.js > library.js
 
-In other words, all bundles can be rebundled.
-
-Now, let's bundle the example in the repo's js directory.
+For example, let's bundle the code in the repo's js directory.
 
 ```
 ::::::::::::::
@@ -35,16 +37,16 @@ js/iamglamorous.js
 exports.default = "I am glamorous";
 
 ::::::::::::::
-js/index.js
+js/main.js
 ::::::::::::::
-iamglamorous = require('./iamglamorous');
+iamglamorous = require('/iamglamorous');
 console.log(iamglamorous.default);
 ```
 
 Now run the following and you get:
 
 ```
-~/my-javascript-bundler $ python3 bundle.py js/*.js | node
+$ python3 bundlejs.py js/*.js | node
 I am glamorous
 ```
 
@@ -64,16 +66,16 @@ module.exports = (function bundler(modules){
         return e;
     }
 })({
-'./iamglamorous':function(require, module, exports){
+'/iamglamorous':function(require, module, exports){
 exports.default = "I am glamorous";
 
 },
-'.':function(require, module, exports){
-iamglamorous = require('./iamglamorous');
+'/main':function(require, module, exports){
+iamglamorous = require('/iamglamorous');
 console.log(iamglamorous.default);
 
 },
-})('.');
+})('/main');
 ```
 
 Copyright 2017 roseengineering
